@@ -12,17 +12,17 @@ A replacement for the built in "Send Email" functionality of Symphony's core. In
 
 [INSTALLATION]
 
-1. Upload the 'email' folder in this archive to your Symphony 'extensions' folder.
+1. Upload the 'smtp_email_library' folder in this archive to your Symphony 'extensions' folder.
 
 2. Enable it by selecting the "SMTP Email Library", choose Enable from the with-selected menu, then click Apply.
 
-Note: If your server already has PEAR installed, you may need to remove the folder "extension/email/lib/pear" otherwise class name classes could occur.
+Note: If your server already has PEAR installed, you may need to remove the folder "extension/smtp_email_library/lib/pear" otherwise class name classes could occur.
 
 [USAGE]
 
 - Add the "Send Email via Direct SMTP Connection" to your events and follow the documentation that gets added to your Event.
 
-- Developers can include extensions/email/lib/class.email.php. Use the following example code:
+- Developers can include extensions/smtp_email_library/lib/class.email.php. Use the following example code:
 
 	$email = new LibraryEmail;
 
