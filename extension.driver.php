@@ -179,7 +179,7 @@
 		}
 		
 		public function cbAppendEventFilterDocumentation(array $context=array()){
-			if(!in_array('smtp-email-library-send-email-filter', $context['selected'])) return;
+			if(!@in_array('smtp-email-library-send-email-filter', $context['selected'])) return;
 			
 			$context['documentation'][] = new XMLElement('h3', __('Send Email via Direct SMTP Connection'));
 
@@ -211,7 +211,7 @@
 		
 		public function cbSendEmailSMTPFilter(array $context=array()){
 			
-			if(!in_array('smtp-email-library-send-email-filter', $context['event']->eParamFILTERS)) return;
+			if(!@in_array('smtp-email-library-send-email-filter', $context['event']->eParamFILTERS)) return;
 
 			$fields = $_POST['send-email'];
 			
