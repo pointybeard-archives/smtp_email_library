@@ -8,8 +8,8 @@
 		
 		public function about(){
 			return array('name' => 'SMTP Email Library',
-						 'version' => '1.0',
-						 'release-date' => '2010-01-28',
+						 'version' => '1.1',
+						 'release-date' => '2010-02-12',
 						 'author' => array('name' => 'Alistair Kearney',
 										   'website' => 'http://www.pointybeard.com',
 										   'email' => 'alistair@symphony-cms.com')
