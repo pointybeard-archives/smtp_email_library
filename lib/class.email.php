@@ -5,7 +5,7 @@
 		private $_vars;
 		
 		public function __construct(){
-			require_once "Mail.php";
+			require_once "pear/Mail.php";
 			$this->_vars = array('headers' => array());
 		}
 		
