@@ -21,7 +21,7 @@
 					
 			$headers = array(
 				'Message-ID'	=> sprintf('<%s@%s>', md5(uniqid(time())), $_SERVER['SERVER_NAME']),
-				'Return-Path'	=> 'noreply@' . URL,
+				'Return-Path'	=> 'noreply@' . DOMAIN,
 				'Importance'	=> 'normal',
 				'Priority'		=> 'normal',
 				'X-Sender'		=> 'Symphony Email Module <noreply@symphony-cms.com>',
@@ -50,7 +50,7 @@
 				'debug' => ((int)$credentials['debug'] == 1 ? true : false),
 			));
 			
-			$smtp->send(
+			$mail = $smtp->send(
 				$this->_vars['to'], 
 				$headers, 
 				$this->_vars['message']
