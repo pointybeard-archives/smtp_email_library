@@ -1,14 +1,12 @@
 SMTP Email Library
 ------------------------------------
 
-Version: 1.1
-Author: Alistair Kearney (alistair@symphony-cms.com)
-Build Date: 12th Feb 2010
-Requirements: Symphony 2.0.6 or above
+Version: 2.0
+Author: Alistair Kearney (hi@alistairkearney.com)
+Build Date: 23rd Aug 2010
+Requirements: Symphony 2.2 or above
 
 Establishes a direct SMTP connection with target email server rather than rely on PHP's flaky mail() function.
-
-A replacement for the built in "Send Email" functionality of Symphony's core. Includes an event filter as well as a class for developers to use. This extension makes use of the PEAR Mail library.
 
 [INSTALLATION]
 
@@ -16,30 +14,18 @@ A replacement for the built in "Send Email" functionality of Symphony's core. In
 
 2. Enable it by selecting the "SMTP Email Library", choose Enable from the with-selected menu, then click Apply.
 
+3. Edit your Symphony config to use this extension for sending emails. It should look like the following:
+
+	###### EMAIL ######
+	'email' => array(
+		'driver' => 'smtp_email_library/lib/class.email.php',
+	),
+	########
+
 Note: If your server already has PEAR installed, you may need to remove the folder "extension/smtp_email_library/lib/pear" otherwise class name classes could occur.
 
 [CHANGE LOG]
 
+	2.0 - Hooks into the core email API of Symphony 2.2
 	1.1	- Fixed some small bugs that appear when using Symphony 2.0.7RC1
 	1.0 - Initial Release
-
-[USAGE]
-
-- Add the "Send Email via Direct SMTP Connection" to your events and follow the documentation that gets added to your Event.
-
-- Developers can include extensions/smtp_email_library/lib/class.email.php. Use the following example code:
-
-	$email = new LibraryEmail;
-
-	$email->to = sprintf('%s <%s>', 'Fred Smith', 'fred@smith.com');
-	$email->from = sprintf('%s <%s>', 'You', 'you@yoursite.com');
-	$email->subject = 'Test Email;
-	$email->message = 'Blah Blah Blah, this is the email body'
-	$email->setHeader('Reply-To', 'noreply@mysite.com');
-
-	try{
-		$email->send();
-	}
-	catch(Exception $e){
-		die("Oh Oh! Something failed: " . $e->getMessage());
-	}
